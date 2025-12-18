@@ -6,35 +6,77 @@ Este proyecto es un Sistema de Gestión de Contenidos (CMS) completo desarrollad
 
 * **Lenguaje:** PHP 8 (Sin frameworks, código nativo).
 * **Base de Datos:** MySQL / MariaDB.
-* **Frontend:** HTML5, CSS3 (Estilos propios).
+* **Frontend:** HTML5, CSS3 (Diseño responsivo propio con Flexbox).
 * **Servidor:** Apache (XAMPP/WAMP recomendado).
+* **Control de Versiones:** Git & GitHub.
 
 ## ✨ Funcionalidades Principales
 
 * **Sistema de Usuarios:**
-    * Registro y Login de usuarios (con cifrado de contraseñas `password_hash`).
-    * Edición de datos de perfil.
-    * Gestión de sesiones segura.
+    * Registro y Login seguro (contraseñas cifradas con `password_hash`).
+    * Edición de perfil de usuario.
+    * Gestión de sesiones y permisos.
 * **Gestión de Contenido (CRUD):**
-    * Crear, editar y eliminar entradas de blog.
-    * Crear categorías nuevas.
+    * Crear, editar y eliminar entradas.
+    * Crear nuevas categorías.
 * **Navegación:**
-    * Buscador interno de entradas.
-    * Filtrado de entradas por categoría.
-    * Listado de últimas entradas y paginación.
-* **Seguridad:**
-    * Protección contra inyección SQL (`mysqli_real_escape_string`).
-    * Validación de formularios en servidor.
-    * Control de acceso a rutas privadas.
+    * Buscador de entradas en tiempo real.
+    * Filtrado por categorías.
+    * Paginación y listado de últimas entradas.
+* **Interfaz:**
+    * Diseño limpio con menú superior y barra lateral (sidebar).
+    * Pie de página "Sticky Footer" (siempre abajo).
+
+## 🧪 Usuarios de Prueba (Demo Data)
+
+El proyecto incluye una base de datos poblada (`blog_master.sql`) con usuarios y contenido de ejemplo para facilitar las pruebas:
+
+| Email | Contraseña |
+| :--- | :--- |
+| `juan@garcia.com` | `juan` |
+| `laura@hernandez.com` | `1234` |
+| `pepe@perez.com` | `1234` |
+
+> **Nota:** Puedes usar cualquiera de estos usuarios para iniciar sesión y probar la edición/borrado de sus propias entradas.
 
 ## 📂 Estructura del Proyecto
 
-El código ha sido refactorizado para separar la lógica de la vista:
+El código ha sido refactorizado separando la lógica de las vistas para un mantenimiento más sencillo:
 
 ```text
 /proyecto-php
-├── acciones/           # Controladores (Lógica de negocio: Login, Guardar, Borrar...)
-├── assets/             # Recursos estáticos (CSS, Fuentes, Imágenes)
-├── includes/           # Fragmentos de vista reutilizables (Cabecera, Lateral, Conexión)
-├── database.sql        # Script de importación de la Base de Datos
-└── [vistas]            # Archivos .php de visualización (index, entradas, etc.)
+├── acciones/           # Controladores (Login, Registro, Guardar, Borrar...)
+├── assets/             # Recursos (CSS, Fuentes, Imágenes)
+├── db/                 # Scripts de Base de Datos
+│   └── blog_master.sql # Archivo de importación (Estructura + Datos)
+├── includes/           # Componentes reutilizables (Cabecera, Sidebar, Pie)
+└── [vistas]            # Archivos .php de interfaz (index, entradas, etc.)
+```
+
+## 🔧 Instalación Local
+
+1. Clonar el repositorio:
+    ```bash
+    git clone https://github.com/JKFullDev/blog-videojuegos.git
+    ```
+
+2. Base de Datos:
+
+    * Crea una base de datos vacía llamada blog_master en tu gestor (phpMyAdmin, etc.).
+
+    * Importa el archivo db/blog_master.sql incluido en la raíz.
+
+3. Configuración:
+
+    * Verifica includes/conexion.php si tus credenciales de MySQL son diferentes a las estándar (root / sin contraseña).
+
+4. Ejecutar:
+
+    * Abre el navegador en http://localhost/blog-videojuegos (o la ruta donde lo hayas clonado).
+
+## 👤 Autor
+Juan Carlos Alonso Hernando
+
+Desarrollador Web Full Stack
+
+https://www.linkedin.com/in/jcah-dev/
