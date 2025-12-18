@@ -1,0 +1,339 @@
+/* --- FUENTES MODERNAS (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+/* --- VARIABLES DE COLOR --- */
+:root {
+    --primary: #2979CD;
+    --primary-hover: #1c5fa0;
+    --bg-body: #f4f6f8;
+    --bg-white: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #666666;
+    --border-color: #e1e1e1;
+    --soft-shadow: 0px 5px 15px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+/* --- GENERALES --- */
+* {
+    margin: 0px;
+    padding: 0px;
+    /* Usamos Roboto para textos largos y Poppins para títulos */
+    font-family: 'Roboto', sans-serif; 
+    text-decoration: none;
+    box-sizing: border-box; /* Ayuda a que los paddings no rompan los anchos */
+}
+
+.clearfix {
+    clear: both;
+    float: none;
+}
+
+body {
+    background: var(--bg-body); /* Color plano limpio, sin imagen de cubos */
+    color: var(--text-dark);
+}
+
+.alerta {
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    background: #27ae60;
+    box-shadow: var(--soft-shadow);
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: none;
+}
+
+.alerta-error {
+    background: #e74c3c;
+}
+
+.fecha {
+    color: #999;
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* --- CABECERA --- */
+#cabecera {
+    width: 85%;
+    height: auto;
+    background: transparent;
+    margin: 30px auto;
+}
+
+/* --- LOGOTIPO --- */
+#logo {
+    float: left;
+    width: 540px;
+    height: 100px; /* Ajustado ligeramente */
+}
+
+#logo a {
+    font-family: 'Poppins', sans-serif; /* Fuente moderna gruesa */
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--primary);
+    /* Quitamos text-shadow negro duro */
+    text-shadow: none; 
+    transition: all 300ms;
+    margin-left: 0; /* Limpiamos margen */
+    display: block;
+    padding-top: 20px;
+}
+
+#logo a:hover {
+    color: var(--primary-hover);
+    cursor: pointer;
+}
+
+/* --- MENU --- */
+#menu {
+    clear: both;
+    width: 100%;
+    height: 50px; /* Un poco más alto para mejor click */
+    background: var(--bg-white);
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--soft-shadow);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu ul li {
+    float: left;
+    line-height: 50px;
+    border-right: none; /* Quitamos las líneas divisorias viejas */
+}
+
+#menu ul li a {
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-gray);
+    transition: all 0.3s;
+}
+
+#menu ul li a:hover {
+    background: rgba(41, 121, 205, 0.08); /* Fondo azul muy sutil */
+    color: var(--primary);
+}
+
+/* --- CONTENIDO (Mantenemos tu estructura de floats) --- */
+#contenedor {
+    width: 85%;
+    height: auto;
+    margin: 0px auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* Importante para que el contenedor crezca con los floats internos */
+    overflow: hidden; 
+}
+
+/* --- BARRA LATERAL (ASIDE) --- */
+#sidebar {
+    float: right;
+    width: 27%;
+    height: auto;
+}
+
+.bloque {
+    display: block;
+    width: 100%; /* Ajustado al 100 del sidebar */
+    margin: 0px auto;
+    margin-bottom: 30px;
+    background: var(--bg-white);
+    padding: 20px;
+    /* Sombra suave moderna en vez de inset/outset */
+    box-shadow: var(--soft-shadow); 
+    border-radius: 8px;
+}
+
+.bloque h3 {
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    font-size: 18px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* FORMULARIOS SIDEBAR */
+label,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select{
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select{
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #fafafa;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary);
+    background: white;
+}
+
+textarea{
+    height: 300px;
+    resize: none;
+}
+
+/* BOTONES */
+input[type="button"],
+input[type="submit"],
+.boton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 4px;
+    color: white;
+    background: var(--primary);
+    border: none; /* Quitamos bordes con colores distintos */
+    cursor: pointer;
+    padding: 10px 15px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.boton {
+    text-align: center;
+    width: auto;
+    color: white !important;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.boton:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px); /* Pequeño salto al hover */
+}
+
+.boton-naranja { background: #f39c12; }
+.boton-naranja:hover { background: #d98704; }
+
+.boton-verde { background: #27ae60; }
+.boton-verde:hover { background: #109448; }
+
+.boton-rojo { background: #e74c3c; }
+.boton-rojo:hover { background: #ad1303; }
+
+.botones-entrada{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 20px
+}
+
+.editar, .borrar{
+    width: 18%;
+    text-decoration: none;
+}
+
+/* --- PRINCIPAL (Mantenemos float y width) --- */
+#principal {
+    float: left;
+    width: 65%;
+    min-height: 572px;
+    background: var(--bg-white);
+    border-radius: 8px;
+    /* Sombra suave */
+    box-shadow: var(--soft-shadow); 
+    /* Margin left original, ajustado un poco por el box-sizing */
+    margin-left: 20px; 
+    padding: 30px;
+    overflow: hidden;
+}
+
+#principal a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+#principal h1 {
+    font-size: 32px;
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    text-shadow: none;
+}
+
+#principal h2 {
+    font-size: 22px;
+    color: var(--text-gray);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    text-shadow: none;
+}
+
+#principal p {
+    margin-top: 10px;
+    line-height: 1.7; /* Mejor lectura */
+    color: var(--text-gray);
+}
+
+/* BOTON VER TODAS */
+#ver-todas a {
+    display: block;
+    border-radius: 30px; /* Redondeado completo */
+    padding: 12px 20px;
+    color: var(--primary);
+    background: transparent;
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    width: 180px;
+    margin: 50px auto 0px auto;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+#ver-todas a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* --- PIE DE PAGINA --- */
+#pie {
+    clear: both;
+    width: 85%;
+    margin: 0px auto;
+    background: var(--bg-white);
+    border: none;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: var(--soft-shadow);
+    color: var(--text-gray);
+    height: auto;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px; /* Separación del contenido */
+}
