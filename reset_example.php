@@ -1,8 +1,7 @@
 <?php
-// reset.php - Script de restauración para el Portfolio
+// reset.php 
 
 // 1. CONFIGURACIÓN
-// Token generado para tu proyecto:
 $token_secreto = "TU_TOKEN_AQUI";
 
 // 2. SEGURIDAD
@@ -11,8 +10,6 @@ if (!isset($_GET['token']) || $_GET['token'] != $token_secreto) {
 }
 
 // 3. CONEXIÓN
-// Ajusta la ruta si es necesario (ej: '../includes/conexion.php' si cambias carpetas)
-// Pero si reset.php está en la raíz junto a index.php, esto está bien:
 require_once 'includes/conexion.php';
 
 // 4. LEER EL ARCHIVO SQL
