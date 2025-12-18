@@ -1,3 +1,4 @@
 /vendor           
 .DS_Store        
-Thumbs.db      
+Thumbs.db
+includes/db_production.php     

@@ -128,8 +128,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `email`, `password`, `fecha
 --
 DROP TABLE IF EXISTS `entradas_con_nombres`;
 
-DROP VIEW IF EXISTS `entradas_con_nombres`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`administrador`@`localhost` SQL SECURITY DEFINER VIEW `entradas_con_nombres`  AS SELECT `e`.`id` AS `id`, `e`.`titulo` AS `titulo`, `u`.`nombre` AS `Autor`, `c`.`nombre` AS `Categoría` FROM ((`entradas` `e` join `usuarios` `u` on((`e`.`usuario_id` = `u`.`id`))) join `categorias` `c` on((`e`.`categoria_id` = `c`.`id`))) ;
+
 
 --
 -- Restricciones para tablas volcadas
