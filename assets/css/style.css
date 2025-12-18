@@ -10,7 +10,8 @@
     --text-dark: #333333;
     --text-gray: #666666;
     --border-color: #e1e1e1;
-    --soft-shadow: 0px 5px 15px rgba(0,0,0,0.05); /* Sombra suave */
+    --soft-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    /* Sombra suave */
 }
 
 /* --- GENERALES --- */
@@ -18,9 +19,10 @@
     margin: 0px;
     padding: 0px;
     /* Usamos Roboto para textos largos y Poppins para títulos */
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
-    box-sizing: border-box; /* Ayuda a que los paddings no rompan los anchos */
+    box-sizing: border-box;
+    /* Ayuda a que los paddings no rompan los anchos */
 }
 
 .clearfix {
@@ -29,8 +31,14 @@
 }
 
 body {
-    background: var(--bg-body); /* Color plano limpio, sin imagen de cubos */
+    background: var(--bg-body);
+    /* Color plano limpio, sin imagen de cubos */
     color: var(--text-dark);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Altura mínima del 100% de la ventana */
 }
 
 .alerta {
@@ -67,19 +75,22 @@ body {
 #logo {
     float: left;
     width: 540px;
-    height: 100px; /* Ajustado ligeramente */
+    height: 100px;
+    /* Ajustado ligeramente */
 }
 
 #logo a {
-    font-family: 'Poppins', sans-serif; /* Fuente moderna gruesa */
+    font-family: 'Poppins', sans-serif;
+    /* Fuente moderna gruesa */
     font-size: 42px;
     font-weight: 700;
     letter-spacing: -1px;
     color: var(--primary);
     /* Quitamos text-shadow negro duro */
-    text-shadow: none; 
+    text-shadow: none;
     transition: all 300ms;
-    margin-left: 0; /* Limpiamos margen */
+    margin-left: 0;
+    /* Limpiamos margen */
     display: block;
     padding-top: 20px;
 }
@@ -93,7 +104,8 @@ body {
 #menu {
     clear: both;
     width: 100%;
-    height: 50px; /* Un poco más alto para mejor click */
+    height: 50px;
+    /* Un poco más alto para mejor click */
     background: var(--bg-white);
     border: none;
     border-radius: 8px;
@@ -109,7 +121,8 @@ body {
 #menu ul li {
     float: left;
     line-height: 50px;
-    border-right: none; /* Quitamos las líneas divisorias viejas */
+    border-right: none;
+    /* Quitamos las líneas divisorias viejas */
 }
 
 #menu ul li a {
@@ -123,7 +136,8 @@ body {
 }
 
 #menu ul li a:hover {
-    background: rgba(41, 121, 205, 0.08); /* Fondo azul muy sutil */
+    background: rgba(41, 121, 205, 0.08);
+    /* Fondo azul muy sutil */
     color: var(--primary);
 }
 
@@ -135,7 +149,7 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     /* Importante para que el contenedor crezca con los floats internos */
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* --- BARRA LATERAL (ASIDE) --- */
@@ -147,13 +161,14 @@ body {
 
 .bloque {
     display: block;
-    width: 100%; /* Ajustado al 100 del sidebar */
+    width: 100%;
+    /* Ajustado al 100 del sidebar */
     margin: 0px auto;
     margin-bottom: 30px;
     background: var(--bg-white);
     padding: 20px;
     /* Sombra suave moderna en vez de inset/outset */
-    box-shadow: var(--soft-shadow); 
+    box-shadow: var(--soft-shadow);
     border-radius: 8px;
 }
 
@@ -172,7 +187,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea,
-select{
+select {
     display: block;
     width: 100%;
     margin-top: 5px;
@@ -183,7 +198,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea,
-select{
+select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid var(--border-color);
@@ -200,7 +215,7 @@ input[type="password"]:focus {
     background: white;
 }
 
-textarea{
+textarea {
     height: 300px;
     resize: none;
 }
@@ -215,7 +230,8 @@ input[type="submit"],
     border-radius: 4px;
     color: white;
     background: var(--primary);
-    border: none; /* Quitamos bordes con colores distintos */
+    border: none;
+    /* Quitamos bordes con colores distintos */
     cursor: pointer;
     padding: 10px 15px;
     font-weight: 600;
@@ -233,19 +249,35 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 .boton:hover {
     background: var(--primary-hover);
-    transform: translateY(-2px); /* Pequeño salto al hover */
+    transform: translateY(-2px);
+    /* Pequeño salto al hover */
 }
 
-.boton-naranja { background: #f39c12; }
-.boton-naranja:hover { background: #d98704; }
+.boton-naranja {
+    background: #f39c12;
+}
 
-.boton-verde { background: #27ae60; }
-.boton-verde:hover { background: #109448; }
+.boton-naranja:hover {
+    background: #d98704;
+}
 
-.boton-rojo { background: #e74c3c; }
-.boton-rojo:hover { background: #ad1303; }
+.boton-verde {
+    background: #27ae60;
+}
 
-.botones-entrada{
+.boton-verde:hover {
+    background: #109448;
+}
+
+.boton-rojo {
+    background: #e74c3c;
+}
+
+.boton-rojo:hover {
+    background: #ad1303;
+}
+
+.botones-entrada {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -253,8 +285,9 @@ input[type="submit"]:hover,
     gap: 20px
 }
 
-.editar, .borrar{
-    width: 18%;
+.editar,
+.borrar {
+    width: 80px;
     text-decoration: none;
 }
 
@@ -266,9 +299,7 @@ input[type="submit"]:hover,
     background: var(--bg-white);
     border-radius: 8px;
     /* Sombra suave */
-    box-shadow: var(--soft-shadow); 
-    /* Margin left original, ajustado un poco por el box-sizing */
-    margin-left: 20px; 
+    box-shadow: var(--soft-shadow);
     padding: 30px;
     overflow: hidden;
 }
@@ -298,14 +329,16 @@ input[type="submit"]:hover,
 
 #principal p {
     margin-top: 10px;
-    line-height: 1.7; /* Mejor lectura */
+    line-height: 1.7;
+    /* Mejor lectura */
     color: var(--text-gray);
 }
 
 /* BOTON VER TODAS */
 #ver-todas a {
     display: block;
-    border-radius: 30px; /* Redondeado completo */
+    border-radius: 30px;
+    /* Redondeado completo */
     padding: 12px 20px;
     color: var(--primary);
     background: transparent;
@@ -335,5 +368,6 @@ input[type="submit"]:hover,
     height: auto;
     padding: 20px;
     text-align: center;
-    margin-top: 40px; /* Separación del contenido */
+    margin-top: 40px;
+    /* Separación del contenido */
 }

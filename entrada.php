@@ -22,8 +22,8 @@ if (!isset($entrada_actual['id'])) {
 
     <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $entrada_actual['usuario_id']): ?>
         <div class="botones-entrada">
-            <a href="editar-entrada.php?id=<?= $entrada_actual['id'] ?>" class="boton boton-verde editar">Editar entrada</a>
-            <a href="acciones/borrar-entrada.php?id=<?= $entrada_actual['id'] ?>" class="boton boton-rojo borrar">Borrar entrada</a>
+            <a href="editar-entrada.php?id=<?= $entrada_actual['id'] ?>" class="boton boton-verde editar">Editar</a>
+            <a href="acciones/borrar-entrada.php?id=<?= $entrada_actual['id'] ?>" class="boton boton-rojo borrar">Borrar</a>
         </div>
     <?php endif; ?>
 </div> <!--fin principal -->
