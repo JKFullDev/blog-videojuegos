@@ -2,6 +2,11 @@
 
 Este proyecto es un Sistema de Gestión de Contenidos (CMS) completo desarrollado desde cero utilizando **PHP nativo** bajo una arquitectura modular. Permite la gestión de usuarios, categorías y entradas de blog sobre videojuegos.
 
+## 🚀 Demo en Vivo
+Puedes probar el proyecto funcionando aquí:  
+👉 **[https://blog-videojuegos.infinityfreeapp.com/](https://blog-videojuegos.infinityfreeapp.com/)**
+
+
 ## 🚀 Tecnologías Utilizadas
 
 * **Lenguaje:** PHP 8 (Sin frameworks, código nativo).
@@ -29,7 +34,7 @@ Este proyecto es un Sistema de Gestión de Contenidos (CMS) completo desarrollad
 
 ## 🧪 Usuarios de Prueba (Demo Data)
 
-El proyecto incluye una base de datos poblada (`blog_master.sql`) con usuarios y contenido de ejemplo para facilitar las pruebas:
+El proyecto incluye una base de datos poblada (`db/blog_master.sql`) con usuarios y contenido de ejemplo para facilitar las pruebas:
 
 | Email | Contraseña |
 | :--- | :--- |
@@ -38,6 +43,12 @@ El proyecto incluye una base de datos poblada (`blog_master.sql`) con usuarios y
 | `pepe@perez.com` | `1234` |
 
 > **Nota:** Puedes usar cualquiera de estos usuarios para iniciar sesión y probar la edición/borrado de sus propias entradas.
+
+## 🛡️ Mantenimiento Automático (Reset Diario)
+
+Para mantener la demo limpia y funcional:
+* **Cron Job:** El sistema ejecuta un script automático cada 24 horas.
+* **Restauración:** Se borra todo el contenido generado por los visitantes y se restaura la base de datos a su estado original (`blog_master.sql`).
 
 ## 📂 Estructura del Proyecto
 

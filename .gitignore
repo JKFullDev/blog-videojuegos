@@ -1,4 +1,5 @@
 /vendor           
 .DS_Store        
 Thumbs.db
-includes/db_production.php     
+includes/db_production.php
+reset.php
