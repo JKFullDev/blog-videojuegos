@@ -63,14 +63,16 @@ body {
     width: 85%;
     height: auto;
     background: transparent;
-    margin: 30px auto;
+    margin: auto;
 }
 
 /* --- LOGOTIPO --- */
 #logo {
     float: left;
-    width: 540px;
-    height: 100px;
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 #logo a {
@@ -134,7 +136,7 @@ body {
     width: 85%;
     height: auto;
     margin: 0px auto;
-    margin-top: 30px;
+    margin-top: 0;
     margin-bottom: 30px;
     overflow: hidden;
     flex: 1;
@@ -278,7 +280,10 @@ input[type="submit"]:hover,
 
 /* --- PRINCIPAL --- */
 #principal {
-    float: left;
+    /*float: left;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     width: 65%;
     min-height: 572px;
     background: var(--bg-white);
@@ -312,7 +317,6 @@ input[type="submit"]:hover,
 }
 
 #principal p {
-    margin-top: 10px;
     line-height: 1.7;
     color: var(--text-gray);
 }
@@ -353,107 +357,125 @@ input[type="submit"]:hover,
     margin-top: 40px;
 }
 
-/* =======================================================
-   RESPONSIVE DESIGN
-   ======================================================= */
+/* =========================================
+   ESTILOS RESPONSIVE Y MENU MÓVIL
+   ========================================= */
 
-/* 1. TABLETS Y MÓVILES (Menos de 1024px) */
+/* Por defecto (Escritorio): Ocultamos los botones móviles */
+#menu-movil-btn {
+    display: none;
+}
+
+#user-movil-btn {
+    display: none !important;
+}
+
+/* MEDIA QUERY (SOLO MÓVIL Y TABLET) */
 @media (max-width: 1024px) {
 
+    /* AJUSTES GENERALES */
     #cabecera,
     #contenedor,
     #pie {
         width: 95%;
-        /* Aprovechamos más pantalla */
     }
 
     #logo {
         width: 100%;
         float: none;
         text-align: center;
-        margin-bottom: 10px;
     }
 
     #logo a {
-        padding-top: 10px;
         float: none;
+        padding-top: 10px;
     }
 
+    /* --- MENÚ CATEGORÍAS --- */
     #menu {
         height: auto;
-        text-align: center;
-        margin-bottom: 5px;
-        /* Reducimos margen inferior del menú */
+        /* Dejar crecer */
+        margin-bottom: 10px;
     }
 
-    #menu ul li {
-        float: none;
-        display: inline-block;
-    }
-
-    /* Reducimos el margen superior del contenedor principal para que
-       no haya tanto hueco entre el menú y el sidebar/contenido */
-    #contenedor {
-        margin-top: 10px;
-    }
-
-    /* Quitamos los floats: El Sidebar se pondrá ARRIBA solo (orden natural HTML) */
-    #principal {
-        float: none;
-        width: 100%;
-        min-height: auto;
-        margin-bottom: 30px;
-    }
-
-    #sidebar {
-        float: none;
-        width: 100%;
-        margin-top: 0;
-        /* Sin margen extra arriba */
-    }
-}
-
-/* 2. MÓVILES PEQUEÑOS (Menos de 600px) */
-@media (max-width: 600px) {
-    #menu ul li {
+    #menu-movil-btn {
         display: block;
-        /* Menú vertical */
+        /* Mostrar botón */
+        padding: 15px;
+        background: #2979CD;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    /* Ocultamos la lista por defecto en móvil */
+    #menu ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    /* ¡IMPORTANTE! Esta clase la añade el JS al hacer click */
+    #menu ul.desplegado {
+        display: flex;
+        /* O block */
+    }
+
+    #menu ul li {
         width: 100%;
-        border-bottom: 1px solid #f4f6f8;
+        float: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: #333;
     }
 
     #menu ul li a {
-        padding: 10px;
-    }
-
-    #principal {
+        color: white;
         padding: 15px;
     }
 
-    #principal h1 {
-        font-size: 24px;
-    }
 
-    .entrada h2 {
-        font-size: 20px;
-    }
-
-    /* Botones anchos para facilitar el "tap" */
-    #ver-todas a,
-    .boton,
-    input[type="submit"] {
-        width: 100%;
-        display: block;
-    }
-
-    .botones-entrada {
+    /* --- CONTENIDO PRINCIPAL --- */
+    #principal {
+        display: flex;
         flex-direction: column;
+        gap: 10px;
         width: 100%;
+        margin-bottom: 30px;
     }
 
-    .editar,
-    .borrar {
+
+    /* --- SIDEBAR (USUARIO) --- */
+    #sidebar {
+        float: none;
         width: 100%;
-        text-align: center;
+        margin-top: 20px;
+    }
+
+    #user-movil-btn {
+        display: block !important;
+        /* Mostrar botón usuario */
+    }
+
+    /* Ocultamos los bloques del sidebar por defecto */
+    #sidebar .bloque {
+        display: none;
+    }
+
+    /* ¡IMPORTANTE! Clase para mostrar al clickar */
+    #sidebar .bloque.desplegado {
+        display: block;
+        animation: fadeApp 0.5s;
+    }
+
+    @keyframes fadeApp {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

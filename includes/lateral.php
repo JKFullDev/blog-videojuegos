@@ -1,5 +1,8 @@
-<!-- BARRA LATERAL -->
 <aside id="sidebar">
+
+    <div id="user-movil-btn" class="boton boton-naranja" style="display:none; width:100%; text-align:center; margin-bottom:20px; cursor:pointer;">
+        Área de Usuario / Buscar
+    </div>
 
     <div id="buscador" class="bloque">
         <h3>Buscar</h3>
@@ -10,18 +13,15 @@
         </form>
     </div>
 
-
     <?php if (isset($_SESSION['usuario'])): ?>
         <div id="usuario-logueado" class="bloque">
             <h3>Bienvenid@, <?= $_SESSION['usuario']['nombre']; ?></h3>
-            <!-- botones -->
             <a href="crear-entradas.php" class="boton boton-verde">Crear entradas</a>
             <a href="crear-categoria.php" class="boton">Crear categoría</a>
             <a href="mis-datos.php" class="boton boton-naranja">Mis datos</a>
             <a href="acciones/cerrar.php" class="boton boton-rojo">Cerrar sesión</a>
         </div>
     <?php endif; ?>
-
 
     <?php if (!isset($_SESSION['usuario'])): ?>
         <div id="login" class="bloque">
@@ -47,7 +47,6 @@
         <div id="register" class="bloque">
             <h3>Regístrate</h3>
 
-            <!-- Mostrar errores -->
             <?php if (isset($_SESSION['completado'])): ?>
                 <div class="alerta alerta-exito">
                     <?= $_SESSION['completado']; ?>
@@ -57,7 +56,6 @@
                     <?= $_SESSION['errores']['general'] ?>
                 </div>
             <?php endif; ?>
-
 
             <form action="acciones/registro.php" method="POST">
                 <label for="nombre">Nombre</label>
@@ -75,7 +73,6 @@
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" />
                 <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'password') : ''; ?>
-
 
                 <input type="submit" name="submit" value="Registrar" />
             </form>

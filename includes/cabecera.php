@@ -1,7 +1,6 @@
 <?php require_once 'conexion.php'; ?>
 <?php require_once 'includes/helpers.php'; ?>
 
-
 <!DOCTYPE HTML>
 <html lang="es">
 
@@ -9,23 +8,23 @@
     <meta charset="utf-8" />
     <title>Blog de Videojuegos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css?v=2">
 </head>
 
 <body>
-    <!-- CABECERA -->
     <header id="cabecera">
-        <!-- LOGO -->
         <div id="logo">
             <a href="index.php">
-                <p>Blog de Videojuegos</p>
+                Blog de Videojuegos
             </a>
         </div>
 
-
-        <!-- MENU -->
         <nav id="menu">
-            <ul>
+            <div id="menu-movil-btn">
+                <span>Categorías</span>
+            </div>
+
+            <ul id="menu-lista">
                 <li>
                     <a href="index.php">Inicio</a>
                 </li>
@@ -44,6 +43,7 @@
                 <li>
             </ul>
         </nav>
+        <div class="clearfix"></div>
     </header>
 
     <div id="contenedor">
