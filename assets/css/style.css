@@ -11,18 +11,15 @@
     --text-gray: #666666;
     --border-color: #e1e1e1;
     --soft-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-    /* Sombra suave */
 }
 
 /* --- GENERALES --- */
 * {
     margin: 0px;
     padding: 0px;
-    /* Usamos Roboto para textos largos y Poppins para títulos */
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
     box-sizing: border-box;
-    /* Ayuda a que los paddings no rompan los anchos */
 }
 
 .clearfix {
@@ -32,13 +29,11 @@
 
 body {
     background: var(--bg-body);
-    /* Color plano limpio, sin imagen de cubos */
     color: var(--text-dark);
-
+    /* Sticky Footer */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Altura mínima del 100% de la ventana */
 }
 
 .alerta {
@@ -76,21 +71,17 @@ body {
     float: left;
     width: 540px;
     height: 100px;
-    /* Ajustado ligeramente */
 }
 
 #logo a {
     font-family: 'Poppins', sans-serif;
-    /* Fuente moderna gruesa */
     font-size: 42px;
     font-weight: 700;
     letter-spacing: -1px;
     color: var(--primary);
-    /* Quitamos text-shadow negro duro */
     text-shadow: none;
     transition: all 300ms;
     margin-left: 0;
-    /* Limpiamos margen */
     display: block;
     padding-top: 20px;
 }
@@ -105,7 +96,6 @@ body {
     clear: both;
     width: 100%;
     height: 50px;
-    /* Un poco más alto para mejor click */
     background: var(--bg-white);
     border: none;
     border-radius: 8px;
@@ -122,7 +112,6 @@ body {
     float: left;
     line-height: 50px;
     border-right: none;
-    /* Quitamos las líneas divisorias viejas */
 }
 
 #menu ul li a {
@@ -137,19 +126,19 @@ body {
 
 #menu ul li a:hover {
     background: rgba(41, 121, 205, 0.08);
-    /* Fondo azul muy sutil */
     color: var(--primary);
 }
 
-/* --- CONTENIDO (Mantenemos tu estructura de floats) --- */
+/* --- CONTENIDO --- */
 #contenedor {
     width: 85%;
     height: auto;
     margin: 0px auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    /* Importante para que el contenedor crezca con los floats internos */
     overflow: hidden;
+    flex: 1;
+    /* Sticky Footer */
 }
 
 /* --- BARRA LATERAL (ASIDE) --- */
@@ -162,12 +151,10 @@ body {
 .bloque {
     display: block;
     width: 100%;
-    /* Ajustado al 100 del sidebar */
     margin: 0px auto;
     margin-bottom: 30px;
     background: var(--bg-white);
     padding: 20px;
-    /* Sombra suave moderna en vez de inset/outset */
     box-shadow: var(--soft-shadow);
     border-radius: 8px;
 }
@@ -231,7 +218,6 @@ input[type="submit"],
     color: white;
     background: var(--primary);
     border: none;
-    /* Quitamos bordes con colores distintos */
     cursor: pointer;
     padding: 10px 15px;
     font-weight: 600;
@@ -250,7 +236,6 @@ input[type="submit"]:hover,
 .boton:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    /* Pequeño salto al hover */
 }
 
 .boton-naranja {
@@ -291,14 +276,13 @@ input[type="submit"]:hover,
     text-decoration: none;
 }
 
-/* --- PRINCIPAL (Mantenemos float y width) --- */
+/* --- PRINCIPAL --- */
 #principal {
     float: left;
     width: 65%;
     min-height: 572px;
     background: var(--bg-white);
     border-radius: 8px;
-    /* Sombra suave */
     box-shadow: var(--soft-shadow);
     padding: 30px;
     overflow: hidden;
@@ -330,7 +314,6 @@ input[type="submit"]:hover,
 #principal p {
     margin-top: 10px;
     line-height: 1.7;
-    /* Mejor lectura */
     color: var(--text-gray);
 }
 
@@ -338,7 +321,6 @@ input[type="submit"]:hover,
 #ver-todas a {
     display: block;
     border-radius: 30px;
-    /* Redondeado completo */
     padding: 12px 20px;
     color: var(--primary);
     background: transparent;
@@ -369,5 +351,109 @@ input[type="submit"]:hover,
     padding: 20px;
     text-align: center;
     margin-top: 40px;
-    /* Separación del contenido */
+}
+
+/* =======================================================
+   RESPONSIVE DESIGN
+   ======================================================= */
+
+/* 1. TABLETS Y MÓVILES (Menos de 1024px) */
+@media (max-width: 1024px) {
+
+    #cabecera,
+    #contenedor,
+    #pie {
+        width: 95%;
+        /* Aprovechamos más pantalla */
+    }
+
+    #logo {
+        width: 100%;
+        float: none;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #logo a {
+        padding-top: 10px;
+        float: none;
+    }
+
+    #menu {
+        height: auto;
+        text-align: center;
+        margin-bottom: 5px;
+        /* Reducimos margen inferior del menú */
+    }
+
+    #menu ul li {
+        float: none;
+        display: inline-block;
+    }
+
+    /* Reducimos el margen superior del contenedor principal para que
+       no haya tanto hueco entre el menú y el sidebar/contenido */
+    #contenedor {
+        margin-top: 10px;
+    }
+
+    /* Quitamos los floats: El Sidebar se pondrá ARRIBA solo (orden natural HTML) */
+    #principal {
+        float: none;
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 30px;
+    }
+
+    #sidebar {
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        /* Sin margen extra arriba */
+    }
+}
+
+/* 2. MÓVILES PEQUEÑOS (Menos de 600px) */
+@media (max-width: 600px) {
+    #menu ul li {
+        display: block;
+        /* Menú vertical */
+        width: 100%;
+        border-bottom: 1px solid #f4f6f8;
+    }
+
+    #menu ul li a {
+        padding: 10px;
+    }
+
+    #principal {
+        padding: 15px;
+    }
+
+    #principal h1 {
+        font-size: 24px;
+    }
+
+    .entrada h2 {
+        font-size: 20px;
+    }
+
+    /* Botones anchos para facilitar el "tap" */
+    #ver-todas a,
+    .boton,
+    input[type="submit"] {
+        width: 100%;
+        display: block;
+    }
+
+    .botones-entrada {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .editar,
+    .borrar {
+        width: 100%;
+        text-align: center;
+    }
 }
