@@ -1,9 +1,8 @@
 <div class="clearfix"></div>
 </div>
 <footer id="pie">
-    <p>Desarrollado por Juan Carlos Alonso &copy; 2025</p>
+    <p>&copy; <?= date('Y') ?> Juan Carlos Alonso Hernando. Todos los derechos reservados</p>
 </footer>
-
 <script>
     // 1. Menú Categorías
     const menuBtn = document.querySelector('#menu-movil-btn');
